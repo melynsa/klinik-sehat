@@ -4,6 +4,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\DokterController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PemeriksaanController;
+use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\TampilanController;
 use Illuminate\Support\Facades\Route;
 
@@ -55,3 +56,9 @@ Route::get('/menudokter', [DokterController::class, 'tampildokter'])->name('tamp
 Route::post('/menudokter/store', [DokterController::class, 'simpandokter'])->name('simpan.dokter');
 Route::put('/dokter/{id}/update', [DokterController::class, 'updatedokter'])->name('update.dokter');
 Route::delete('/dokter/{id}/delete', [DokterController::class, 'deletedokter'])->name('delete.dokter');
+
+Route::get('/pendaftaranpasien', [PendaftaranController::class, 'daftarpasien'])->name('pasien.daftar');
+Route::get('/pendaftaran', [PendaftaranController::class, 'tampildaftar'])->name('tampil.daftar');
+Route::post('/pendaftaran/store', [PendaftaranController::class, 'simpandaftar'])->name('simpan.daftar');
+Route::put('/daftar/{id}/update', [PendaftaranController::class, 'updatedaftar'])->name('update.daftar');
+Route::delete('/daftar/{id}/delete', [PendaftaranController::class, 'deletedaftar'])->name('delete.daftar');

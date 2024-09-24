@@ -18,6 +18,7 @@
             <input type="text" id="kategori" class="form-control" value="{{ $kategoridipilih->nama }}" disabled>
             <!-- Menyimpan kategori_id yang dipilih sebagai hidden input -->
             <input type="hidden" name="kategori_id" value="{{ $kategoridipilih->id }}">
+            {{-- <input type="hidden" name="kategori_id" value="{{ $kategoridipilih->id }}"> --}}
         </div><br>
 
         <label for="nama_pasien">Nama Pasien</label><br>

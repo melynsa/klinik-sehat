@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Classes\JenisPasien;
 use App\Models\Kategori;
 use App\Models\Pemeriksaan;
+use App\Models\Pendaftaran;
 use Dompdf\Dompdf;
 use Dompdf\Options;
 use Illuminate\Http\Request;
@@ -16,6 +17,7 @@ class PemeriksaanController extends Controller
     {
         // Mengambil data kategori berdasarkan id
         $kategoridipilih = Kategori::findOrFail($kategori_id);  // Jika tidak ditemukan, akan memunculkan 404 error
+        // $pasiendipilih = Pendaftaran::findOrFail($pendaftaran_id);  // Jika tidak ditemukan, akan memunculkan 404 error
         $kategori = Kategori::all();  // Ambil semua kategori untuk dropdown
         return view('pemeriksaan.create', compact('kategori', 'kategoridipilih'));
     }
@@ -36,6 +38,7 @@ class PemeriksaanController extends Controller
     {
         $request->validate([
             'kategori_id' => 'required|exists:kategori,id',
+            'pendaftaran_id' => 'required|exists:pendaftaran,id',
             'nama_pasien' => 'required',
             'keluhan' => 'required',
             'diagnosa' => 'required',
@@ -59,6 +62,7 @@ class PemeriksaanController extends Controller
         // Simpan data ke database
         $pemeriksaan = Pemeriksaan::create([
             'kategori_id' => $request->kategori_id,
+            'pendaftaran_id' => $request->pendaftaran_id,
             'nama_pasien' => $request->nama_pasien,
             'keluhan' => $request->keluhan,
             'diagnosa' => $request->diagnosa,

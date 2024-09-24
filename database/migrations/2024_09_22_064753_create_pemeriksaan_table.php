@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('pemeriksaan', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('kategori_id'); // Foreign key to kategori
+            $table->unsignedBigInteger('pendaftaran_id'); // Foreign key to pendaftaran
             $table->string('nama_pasien');
             $table->string('keluhan');
             $table->string('diagnosa');
