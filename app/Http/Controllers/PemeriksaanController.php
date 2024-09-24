@@ -12,16 +12,7 @@ use Illuminate\Http\Request;
 class PemeriksaanController extends Controller
 {
 
-    // app/Http/Controllers/PemeriksaanController.php
-
-    public function tampillanding()
-    {
-        // Ambil semua kategori untuk ditampilkan di landing page
-        $kategori = Kategori::all();
-        return view('landing', compact('kategori'));
-    }
-
-    public function createWithCategory($kategori_id)
+    public function tambahperiksabyid($kategori_id)
     {
         // Mengambil data kategori berdasarkan id
         $kategoridipilih = Kategori::findOrFail($kategori_id);  // Jika tidak ditemukan, akan memunculkan 404 error
@@ -29,19 +20,19 @@ class PemeriksaanController extends Controller
         return view('pemeriksaan.create', compact('kategori', 'kategoridipilih'));
     }
 
-    public function index()
+    public function tampilkategori()
     {
         $pemeriksaan = Pemeriksaan::with('kategori')->get();
         return view('pemeriksaan.index', compact('pemeriksaan'));
     }
 
-    public function create()
-    {
-        $kategori = Kategori::all(); // Ambil semua kategori untuk pilihan
-        return view('pemeriksaan.create', compact('kategori'));
-    }
+    // public function tambahpemeriksaan()
+    // {
+    //     $kategori = Kategori::all(); // Ambil semua kategori untuk pilihan
+    //     return view('pemeriksaan.create', compact('kategori'));
+    // }
 
-    public function store(Request $request)
+    public function simpanpemeriksaan(Request $request)
     {
         $request->validate([
             'kategori_id' => 'required|exists:kategori,id',
@@ -78,38 +69,38 @@ class PemeriksaanController extends Controller
         ]);
 
         // return redirect()->route('pemeriksaan.index')->with('success', 'Pemeriksaan berhasil ditambahkan.');
-        return redirect()->route('invoice',['id' => $pemeriksaan->id])->with('success', 'Pemeriksaan berhasil ditambahkan.');
+        return redirect()->route('invoice', ['id' => $pemeriksaan->id])->with('success', 'Pemeriksaan berhasil ditambahkan.');
     }
 
-    public function edit($id)
-    {
-        $pemeriksaan = Pemeriksaan::findOrFail($id);
-        $kategori = Kategori::all();
-        return view('pemeriksaan.edit', compact('pemeriksaan', 'kategori'));
-    }
+    // public function edit($id)
+    // {
+    //     $pemeriksaan = Pemeriksaan::findOrFail($id);
+    //     $kategori = Kategori::all();
+    //     return view('pemeriksaan.edit', compact('pemeriksaan', 'kategori'));
+    // }
 
-    public function update(Request $request, $id)
-    {
-        $request->validate([
-            'kategori_id' => 'required|exists:kategori,id',
-            'nama_pasien' => 'required',
-            'keluhan' => 'required',
-            'diagnosa' => 'required',
-            'hasil_pemeriksaan' => 'required',
-            'jenis_pasien' => 'required|in:BPJS,UMUM',
-            'total_pembayaran' => 'required|numeric',
-        ]);
+    // public function update(Request $request, $id)
+    // {
+    //     $request->validate([
+    //         'kategori_id' => 'required|exists:kategori,id',
+    //         'nama_pasien' => 'required',
+    //         'keluhan' => 'required',
+    //         'diagnosa' => 'required',
+    //         'hasil_pemeriksaan' => 'required',
+    //         'jenis_pasien' => 'required|in:BPJS,UMUM',
+    //         'total_pembayaran' => 'required|numeric',
+    //     ]);
 
-        $pemeriksaan = Pemeriksaan::findOrFail($id);
-        $jenisPasien = new JenisPasien($request->jenis_pasien);
-        $totalBayar = $jenisPasien->jenis($request->total_pembayaran);
+    //     $pemeriksaan = Pemeriksaan::findOrFail($id);
+    //     $jenisPasien = new JenisPasien($request->jenis_pasien);
+    //     $totalBayar = $jenisPasien->jenis($request->total_pembayaran);
 
-        $pemeriksaan->update(array_merge($request->all(), ['total_pembayaran' => $totalBayar]));
+    //     $pemeriksaan->update(array_merge($request->all(), ['total_pembayaran' => $totalBayar]));
 
-        return redirect()->route('pemeriksaan.index')->with('success', 'Pemeriksaan berhasil diperbarui.');
-    }
+    //     return redirect()->route('pemeriksaan.index')->with('success', 'Pemeriksaan berhasil diperbarui.');
+    // }
 
-    public function destroy($id)
+    public function hapuspemeriksaan($id)
     {
         $pemeriksaan = Pemeriksaan::findOrFail($id);
         $pemeriksaan->delete();
@@ -124,25 +115,25 @@ class PemeriksaanController extends Controller
     }
 
     public function generatePdf($id)
-{
-    $pemeriksaan = Pemeriksaan::with('kategori')->findOrFail($id);
+    {
+        $pemeriksaan = Pemeriksaan::with('kategori')->findOrFail($id);
 
-    // Instansiasi dompdf
-    $options = new Options();
-    $options->set('defaultFont', 'Arial');
-    $dompdf = new Dompdf($options);
+        // Instansiasi dompdf
+        $options = new Options();
+        $options->set('defaultFont', 'Arial');
+        $dompdf = new Dompdf($options);
 
-    // Load view ke string
-    $html = view('pemeriksaan.invoice', compact('pemeriksaan'))->render();
-    $dompdf->loadHtml($html);
+        // Load view ke string
+        $html = view('pemeriksaan.invoice', compact('pemeriksaan'))->render();
+        $dompdf->loadHtml($html);
 
-    // Set ukuran dan orientasi kertas
-    $dompdf->setPaper('A4', 'portrait');
+        // Set ukuran dan orientasi kertas
+        $dompdf->setPaper('A4', 'landscape');
 
-    // Render PDF
-    $dompdf->render();
+        // Render PDF
+        $dompdf->render();
 
-    // Output ke browser
-    return $dompdf->stream('invoice.pdf');
-}
+        // Output ke browser
+        return $dompdf->stream('invoice.pdf');
+    }
 }

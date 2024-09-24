@@ -79,7 +79,7 @@
                             <a href="{{ asset('upload/' . $item->gambar) }}" target="_blank">Gambar {{ $item->nama }}</a>
                         </td>
                         <td>{{ $item->nama }}</td>
-                        <td>{{ $item->deskripsi }}</td>
+                        <td>{{ Str::words($item->deskripsi , 20, '...')}}</td>
                         <td>
                             {{-- button tambah kategori --}}
                             <button type="button" class="btn"

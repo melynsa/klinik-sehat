@@ -1,14 +1,12 @@
 @extends('layouts.content')
 @section('main')
 <div>
-    <h1>Daftar Pemeriksaan</h1>
-    <a href="{{ route('pemeriksaan.create') }}">Tambah Pemeriksaan</a>
-
+    <h2 style="text-align: center;margin-top: 20px">Daftar Pemeriksaan</h2>
     @if (session('success'))
         <p>{{ session('success') }}</p>
     @endif
-
-    <table class="table datatable">
+    <div class="table-responsive" >
+        <table class="table datatable" style="overflow-x: auto;">
         <thead>
             <tr>
                 <th>Kategori</th>
@@ -16,6 +14,7 @@
                 <th>Keluhan</th>
                 <th>Diagnosa</th>
                 <th>Hasil Pemeriksaan</th>
+                <th>Tanggal Pemeriksaan</th>
                 <th>Jenis Pasien</th>
                 <th>Total Pembayaran</th>
                 <th>Aksi</th>
@@ -29,6 +28,7 @@
                     <td>{{ $pemeriksaan->keluhan }}</td>
                     <td>{{ $pemeriksaan->diagnosa }}</td>
                     <td>{{ $pemeriksaan->hasil_pemeriksaan }}</td>
+                    <td>{{ $pemeriksaan->tglperiksa }}</td>
                     <td>{{ $pemeriksaan->jenis_pasien }}</td>
                     <td>{{ $pemeriksaan->total_pembayaran }}</td>
                     <td>
@@ -48,6 +48,7 @@
                 </tr>
             @endforeach
         </tbody>
-    </table>
+        </table>
+    </div>
 </div>
 @endsection

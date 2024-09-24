@@ -1,9 +1,17 @@
+@extends('layouts.petugas')
+@section('form')
+
 
 <div>
-    <h1>Tambah Pemeriksaan</h1>
+    <h2 class="text-center" style="color: lightskyblue; margin-bottom: 50px">Form {{ $kategoridipilih->nama }} Pasien</h2>
+
 
     <form action="{{ route('pemeriksaan.store') }}" method="post">
         @csrf
+        {{-- <div class="mb-3">
+            <label for="kategori" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        </div> --}}
         <!-- Input Kategori (Disable) -->
         <div class="form-group">
             <label for="kategori">Kategori Pemeriksaan</label>
@@ -13,16 +21,19 @@
         </div><br>
 
         <label for="nama_pasien">Nama Pasien</label><br>
-        <input type="text" name="nama_pasien" id="nama_pasien" value="{{ old('nama_pasien') }}"><br>
+        <input type="text" name="nama_pasien" class="form-control" id="nama_pasien" value="{{ old('nama_pasien') }}"><br>
 
         <label for="keluhan">Keluhan</label><br>
-        <input type="text" name="keluhan" id="keluhan" value="{{ old('keluhan') }}"><br>
+        <input type="text" name="keluhan" class="form-control" id="keluhan" value="{{ old('keluhan') }}"><br>
 
         <label for="diagnosa">Diagnosa</label><br>
-        <input type="text" name="diagnosa" id="diagnosa" value="{{ old('diagnosa') }}"><br>
+        <input type="text" name="diagnosa" class="form-control" id="diagnosa" value="{{ old('diagnosa') }}"><br>
 
-        <label for="hasil_pemeriksaan">Hasil Pemeriksaan</label><br>
-        <textarea name="hasil_pemeriksaan" id="hasil_pemeriksaan" cols="30" rows="10">{{ old('hasil_pemeriksaan') }}</textarea><br>
+        <label for="hasil_pemeriksaan">Hasil Pemeriksaan & Resep</label><br>
+        <textarea name="hasil_pemeriksaan" class="form-control" id="hasil_pemeriksaan" cols="20" rows="10">{{ old('hasil_pemeriksaan') }}</textarea><br>
+
+        <label for="tglperiksa">Tanggal Pemeriksaan</label><br>
+        <input type="date" name="tglperiksa" class="form-control" id="tglperiksa" value="{{ old('tglperiksa') }}"><br>
 
         <!-- Input Jenis Pasien dengan Radio Button -->
         <label for="jenis_pasien">Jenis Pasien</label><br>
@@ -31,13 +42,13 @@
 
         <!-- Input Pembayaran Awal -->
         <label for="pembayaran_awal">Pembayaran Awal</label><br>
-        <input type="number" name="pembayaran_awal" id="pembayaran_awal" step="0.01"><br>
+        <input type="number" class="form-control" name="pembayaran_awal" id="pembayaran_awal" step="0.01"><br>
 
         <!-- Input Total Pembayaran (Readonly) -->
         <label for="total_pembayaran">Total Pembayaran</label><br>
-        <input type="number" name="total_pembayaran" id="total_pembayaran" step="0.01" readonly><br><br>
+        <input type="number" class="form-control" name="total_pembayaran" id="total_pembayaran" step="0.01" readonly><br><br>
 
-        <button type="submit">Simpan</button>
+        <button type="submit" class="btn btn-primary">Cetak</button>
     </form>
 </div>
 
@@ -71,3 +82,4 @@
         });
     });
 </script>
+@endsection
