@@ -29,12 +29,12 @@ Route::get('/pemeriksaan', [PemeriksaanController::class, 'tampilkategori'])->na
 Route::get('/pemeriksaan/create/{kategori}', [PemeriksaanController::class, 'tambahperiksabyid'])->name('pemeriksaan.create.with.category');
 Route::post('/pemeriksaan/store', [PemeriksaanController::class, 'simpanpemeriksaan'])->name('pemeriksaan.store');
 Route::post('/pemeriksaan/{id}/delete', [PemeriksaanController::class, 'hapuspemeriksaan'])->name('pemeriksaan.destroy');
-// Route::get('/pemeriksaan/create', [PemeriksaanController::class, 'tambahpemeriksaan'])->name('pemeriksaan.create');
-// Route::get('/pemeriksaan/{id}/edit', [PemeriksaanController::class, 'edit'])->name('pemeriksaan.edit');
-// Route::post('/pemeriksaan/{id}', [PemeriksaanController::class, 'update'])->name('pemeriksaan.update');
 Route::get('/invoice/{id}', [PemeriksaanController::class, 'showInvoice'])->name('invoice');
 Route::get('/invoice/pdf/{id}', [PemeriksaanController::class, 'generatePdf'])->name('invoice.pdf');
 
+// Route::get('/pemeriksaan/create', [PemeriksaanController::class, 'tambahpemeriksaan'])->name('pemeriksaan.create');
+// Route::get('/pemeriksaan/{id}/edit', [PemeriksaanController::class, 'edit'])->name('pemeriksaan.edit');
+// Route::post('/pemeriksaan/{id}', [PemeriksaanController::class, 'update'])->name('pemeriksaan.update');
 
 
 Route::get('/', [TampilanController::class, 'tampillanding'])->name('landing.page');

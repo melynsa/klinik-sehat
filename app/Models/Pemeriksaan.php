@@ -10,7 +10,7 @@ class Pemeriksaan extends Model
     use HasFactory;
     protected $table = 'pemeriksaan';
     protected $fillable = [
-        'kategori_id','pendaftaran_id', 'nama_pasien', 'keluhan', 'diagnosa', 'hasil_pemeriksaan','tglperiksa', 'jenis_pasien', 'total_pembayaran'
+        'kategori_id', 'nama_pasien', 'keluhan', 'diagnosa', 'hasil_pemeriksaan','tglperiksa', 'jenis_pasien', 'total_pembayaran'
     ];
 
     // Relasi ke kategori
@@ -19,9 +19,9 @@ class Pemeriksaan extends Model
         return $this->belongsTo(Kategori::class);
     }
 
-    // Relasi ke kategori
-    public function pendaftaran()
-    {
-        return $this->belongsTo(Pendaftaran::class);
-    }
+    // // Relasi ke kategori
+    // public function pendaftaran()
+    // {
+    //     return $this->belongsTo(Pendaftaran::class);
+    // }
 }

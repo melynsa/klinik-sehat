@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pemeriksaan', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('kategori_id'); // Foreign key to kategori
-            $table->unsignedBigInteger('pendaftaran_id'); // Foreign key to pendaftaran
+            // $table->unsignedBigInteger('pendaftaran_id')->nullable(); // Foreign key to pendaftaran
             $table->string('nama_pasien'); // Can be optional if you want to fetch from pendaftaran
             $table->string('keluhan');
             $table->string('diagnosa');
@@ -26,7 +26,7 @@ return new class extends Migration
 
             // Foreign key constraints
             $table->foreign('kategori_id')->references('id')->on('kategori')->onDelete('cascade');
-            $table->foreign('pendaftaran_id')->references('id')->on('pendaftaran')->onDelete('cascade');
+            // $table->foreign('pendaftaran_id')->references('id')->on('pendaftaran')->onDelete('cascade');
         });
     }
 

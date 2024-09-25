@@ -18,8 +18,8 @@ class Pendaftaran extends Model
         return $this->belongsTo(Kategori::class);
     }
 
-    public function pemeriksaan()
-    {
-        return $this->hasMany(Pemeriksaan::class);
-    }
+    // public function pemeriksaan()
+    // {
+    //     return $this->hasMany(Pemeriksaan::class);
+    // }
 }

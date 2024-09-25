@@ -237,32 +237,7 @@
       </div>
     </div>
   </div>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function() {
-        // Ketika dropdown nama pasien berubah
-        $('#nama_pasien').on('change', function() {
-            var namaPasien = $(this).val();
 
-            if (namaPasien.length > 0) {
-                // Lakukan Ajax request untuk mencari data pasien berdasarkan nama
-                $.ajax({
-                    url: '/get-pasien/' + namaPasien,
-                    type: 'GET',
-                    success: function(response) {
-                        // Isi input keluhan dan jenis pasien secara otomatis
-                        $('#keluhan').val(response.keluhan);
-                        $("input[name='jenis_pasien'][value='" + response.jenis_pasien + "']").prop('checked', true);
-                    },
-                    error: function() {
-                        $('#keluhan').val('');
-                        $("input[name='jenis_pasien']").prop('checked', false);
-                    }
-                });
-            }
-        });
-    });
-</script>
 
 
 

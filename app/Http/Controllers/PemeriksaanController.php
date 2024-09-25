@@ -41,8 +41,7 @@ class PemeriksaanController extends Controller
     {
         $request->validate([
             'kategori_id' => 'required|exists:kategori,id',
-            'pendaftaran_id' => 'required|exists:pendaftaran,id',
-            'nama_pasien' => 'required|exists:pendaftaran,nama',
+            'nama_pasien' => 'required',
             'keluhan' => 'required',
             'diagnosa' => 'required',
             'hasil_pemeriksaan' => 'required',
@@ -65,7 +64,6 @@ class PemeriksaanController extends Controller
         // Simpan data ke database
         $pemeriksaan = Pemeriksaan::create([
             'kategori_id' => $request->kategori_id,
-            'pendaftaran_id' => $request->pendaftaran_id,
             'nama_pasien' => $request->nama_pasien,
             'keluhan' => $request->keluhan,
             'diagnosa' => $request->diagnosa,

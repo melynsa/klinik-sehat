@@ -4,12 +4,8 @@
         <h2 class="text-center" style="color: lightskyblue; margin-bottom: 50px">Form {{ $kategoridipilih->nama }} Pasien</h2>
 
 
-        <form action="{{ route('pemeriksaan.store') }}" method="post">
+        <form id="formPemeriksaan"  action="{{ route('pemeriksaan.store') }}" method="post" target="_blank">
             @csrf
-            {{-- <div class="mb-3">
-            <label for="kategori" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-        </div> --}}
             <!-- Input Kategori (Disable) -->
             <div class="form-group">
                 <label for="kategori">Kategori Pemeriksaan</label>
@@ -19,7 +15,6 @@
                 {{-- <input type="hidden" name="kategori_id" value="{{ $kategoridipilih->id }}"> --}}
             </div><br>
 
-            <!-- Pilihan Nama Pasien -->
             <label for="nama_pasien">Nama Pasien</label><br>
             <select name="nama_pasien" id="nama_pasien" class="form-control">
                 <option value="">-- Pilih Pasien --</option>
@@ -27,6 +22,7 @@
                     <option value="{{ $pasien->nama }}">{{ $pasien->nama }}</option>
                 @endforeach
             </select><br>
+
 
             <label for="keluhan">Keluhan</label><br>
             <input type="text" name="keluhan" class="form-control" id="keluhan" value="{{ old('keluhan') }}"><br>
@@ -55,7 +51,7 @@
             <input type="number" class="form-control" name="total_pembayaran" id="total_pembayaran" step="0.01"
                 readonly><br><br>
 
-            <button type="submit" class="btn btn-primary">Cetak</button>
+            <button type="submit" class="btn btn-primary" target="_blank">Cetak</button>
         </form>
     </div>
 
@@ -93,21 +89,12 @@
         });
     </script>
 
-
 <script>
-    document.getElementById('nama_pasien').addEventListener('change', function() {
-        var pasienId = this.value;
-        if (pasienId) {
-            fetch(`/pemeriksaan/create/{kategori}/${pasienId}`)
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('keluhan').value = data.keluhan;
-                    document.getElementById('jenis_pasien').value = data.jenis_pasien;
-                });
-        } else {
-            document.getElementById('keluhan').value = '';
-            document.getElementById('jenis_pasien').value = '';
-        }
-    });
+    // JavaScript untuk reload halaman setelah form disubmit
+    document.getElementById('formPemeriksaan').onsubmit = function() {
+        setTimeout(function() {
+            window.location.reload(); // Reload halaman setelah form disubmit
+        }, 500); // Tunggu setengah detik (500ms) agar form submit selesai
+    };
 </script>
 @endsection
