@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('kategori_id'); // Foreign key to kategori
             $table->unsignedBigInteger('pendaftaran_id'); // Foreign key to pendaftaran
-            $table->string('nama_pasien');
+            $table->string('nama_pasien'); // Can be optional if you want to fetch from pendaftaran
             $table->string('keluhan');
             $table->string('diagnosa');
             $table->text('hasil_pemeriksaan');
@@ -24,8 +24,9 @@ return new class extends Migration
             $table->decimal('total_pembayaran', 10, 2);
             $table->timestamps();
 
-            // Foreign key constraint
+            // Foreign key constraints
             $table->foreign('kategori_id')->references('id')->on('kategori')->onDelete('cascade');
+            $table->foreign('pendaftaran_id')->references('id')->on('pendaftaran')->onDelete('cascade');
         });
     }
 

@@ -13,14 +13,17 @@ use Illuminate\Http\Request;
 class PemeriksaanController extends Controller
 {
 
-    public function tambahperiksabyid($kategori_id)
+    public function tambahperiksabyid(Request $request, $kategori_id)
     {
+
         // Mengambil data kategori berdasarkan id
         $kategoridipilih = Kategori::findOrFail($kategori_id);  // Jika tidak ditemukan, akan memunculkan 404 error
-        // $pasiendipilih = Pendaftaran::findOrFail($pendaftaran_id);  // Jika tidak ditemukan, akan memunculkan 404 error
+        $pendaftaran = Pendaftaran::all();  // Ambil semua data pasien dari tabel pendaftaran
         $kategori = Kategori::all();  // Ambil semua kategori untuk dropdown
-        return view('pemeriksaan.create', compact('kategori', 'kategoridipilih'));
+
+        return view('pemeriksaan.create', compact('kategori', 'kategoridipilih', 'pendaftaran'));
     }
+
 
     public function tampilkategori()
     {
@@ -39,7 +42,7 @@ class PemeriksaanController extends Controller
         $request->validate([
             'kategori_id' => 'required|exists:kategori,id',
             'pendaftaran_id' => 'required|exists:pendaftaran,id',
-            'nama_pasien' => 'required',
+            'nama_pasien' => 'required|exists:pendaftaran,nama',
             'keluhan' => 'required',
             'diagnosa' => 'required',
             'hasil_pemeriksaan' => 'required',

@@ -16,5 +16,10 @@ class Kategori extends Model
     {
         return $this->hasMany(Pemeriksaan::class);
     }
+
+    public function pendaftaran()
+    {
+        return $this->hasMany(Pendaftaran::class);
+    }
 }
 

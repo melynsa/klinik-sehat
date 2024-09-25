@@ -60,7 +60,7 @@
             <div class="col-md-6 col-sm-12 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
               <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Pelayanan Kesehatan Modern di Lingkungan yang Nyaman</h1>
               <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Klinik Sehat kami menyediakan layanan kesehatan terpadu dengan teknologi terbaru dan suasana yang mendukung pemulihan pasien.</p>
-              <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="#" class="btn btn-primary px-4 py-3">Pendaftaran Pasien</a></p>
+              <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="{{ route('pasien.daftar') }}" class="btn btn-primary px-4 py-3">Pendaftaran Pasien</a></p>
             </div>
           </div>
         </div>

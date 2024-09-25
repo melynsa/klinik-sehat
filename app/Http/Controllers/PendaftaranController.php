@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategori;
 use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
 
@@ -10,7 +11,8 @@ class PendaftaranController extends Controller
 
     public function daftarpasien()
     {
-        return view('pendaftaran');
+        $kategori = Kategori::all(); // Mengambil semua kategori untuk dropdown
+        return view('pendaftaran', compact('kategori'));
     }
 
     public function tampildaftar()
@@ -24,13 +26,14 @@ class PendaftaranController extends Controller
     public function simpandaftar(Request $request)
     {
         $request->validate([
+            'layanan' => 'required|exists:kategori,nama',  // Pastikan layanan sesuai dengan nama kategori yang ada
+            // 'layanan' => 'required|',  // Pastikan layanan sesuai dengan nama kategori yang ada
             'nama' => 'required',
             'tanggal_lahir' => 'required|date',
             'jenis_kelamin' => 'required',
             'no_telp' => 'required',
             'alamat' => 'required',
             'foto' => 'nullable|mimes:jpeg,png,jpg',
-            'layanan' => 'required',
             'tanggal_kunjungan' => 'required|date',
             'waktu_kunjungan' => 'required',
             'jenis_pasien' => 'required',
@@ -39,15 +42,17 @@ class PendaftaranController extends Controller
             'faskes' => 'nullable',
             'rujukan' => 'nullable',
             'keluhan' => 'required',
+            'kategori_id' => 'required|exists:kategori,id', // Validasi kategori_id
         ]);
 
         $data = new Pendaftaran();
+        $data->kategori_id = $request->kategori_id;
         $data->nama = $request->nama;
         $data->tanggal_lahir = $request->tanggal_lahir;
         $data->jenis_kelamin = $request->jenis_kelamin;
         $data->no_telp = $request->no_telp;
         $data->alamat = $request->alamat;
-        $data->layanan = $request->layanan;
+        $data->layanan = $request->layanan;  // Menyimpan layanan berdasarkan input yang dipilih
         $data->tanggal_kunjungan = $request->tanggal_kunjungan;
         $data->waktu_kunjungan = $request->waktu_kunjungan;
         $data->jenis_pasien = $request->jenis_pasien;

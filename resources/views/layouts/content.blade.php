@@ -316,6 +316,13 @@
                         </a>
                     </li>
                 </ul>
+                <ul id="tables-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="{{ route('tampil.daftar') }}" class="active">
+                            <i class="bi bi-circle"></i><span>Data Pendaftaran Pasien</span>
+                        </a>
+                    </li>
+                </ul>
             </li><!-- End Tables Nav -->
 
 

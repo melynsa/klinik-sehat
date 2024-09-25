@@ -20,7 +20,7 @@ class Pemeriksaan extends Model
     }
 
     // Relasi ke kategori
-    public function pasien()
+    public function pendaftaran()
     {
         return $this->belongsTo(Pendaftaran::class);
     }

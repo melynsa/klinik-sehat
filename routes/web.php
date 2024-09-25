@@ -57,6 +57,7 @@ Route::post('/menudokter/store', [DokterController::class, 'simpandokter'])->nam
 Route::put('/dokter/{id}/update', [DokterController::class, 'updatedokter'])->name('update.dokter');
 Route::delete('/dokter/{id}/delete', [DokterController::class, 'deletedokter'])->name('delete.dokter');
 
+
 Route::get('/pendaftaranpasien', [PendaftaranController::class, 'daftarpasien'])->name('pasien.daftar');
 Route::get('/pendaftaran', [PendaftaranController::class, 'tampildaftar'])->name('tampil.daftar');
 Route::post('/pendaftaran/store', [PendaftaranController::class, 'simpandaftar'])->name('simpan.daftar');

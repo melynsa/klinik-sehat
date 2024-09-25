@@ -136,12 +136,13 @@
                             <label for="layanan">Layanan yang Dibutuhkan:</label>
                             <select id="layanan" name="layanan" class="form-control" required>
                                 <option value="">-- Pilih Layanan --</option>
-                                <option value="Pemeriksaan Kolesterol">Pemeriksaan Kolesterol</option>
-                                <option value="Pemeriksaan Gula Darah">Pemeriksaan Gula Darah</option>
-                                <option value="Pemeriksaan Tensi/Jantung">Pemeriksaan Tensi/Jantung</option>
-                                <option value="Pemeriksaan Hemoglobin">Pemeriksaan Hemoglobin</option>
+                                @foreach($kategori as $item)
+                                    <option value="{{ $item->nama }}">{{ $item->nama }}</option>
+                                @endforeach
                             </select>
+                            <input type="hidden" name="kategori_id" value="{{ $item->id }}">
                         </div>
+
 
                         <div class="form-group">
                             <label for="tanggal_kunjungan">Tanggal Kunjungan:</label>
@@ -287,10 +288,11 @@
                 // Tombol "Next" diklik, bisa diarahkan ke halaman selanjutnya
                 window.location.href = 'index'; // Ganti dengan halaman berikutnya
             }
+            // Setelah SweetAlert selesai, kirim data form secara manual
+            e.target.submit();
         });
     });
 </script>
-
 
 
     <footer class="ftco-footer ftco-bg-dark ftco-section">

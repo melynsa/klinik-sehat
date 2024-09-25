@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('pendaftaran', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('kategori_id'); // Foreign key to kategori
             $table->string('nama');
             $table->date('tanggal_lahir');
             $table->enum('jenis_kelamin', ['LAKI-LAKI', 'PEREMPUAN']);
@@ -29,6 +30,8 @@ return new class extends Migration
             $table->string('rujukan')->nullable();
             $table->text('keluhan');
             $table->timestamps();
+
+            $table->foreign('kategori_id')->references('id')->on('kategori')->onDelete('cascade');
         });
     }
 
