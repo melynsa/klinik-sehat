@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>DentaCare - Free Bootstrap 4 Template by Colorlib</title>
+    <title>Klinik Sehat</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -32,7 +32,7 @@
 
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index">Klinik<span>Sehat</span></a>
+	      <a class="navbar-brand" href="/">Klinik<span>Sehat</span></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -465,55 +465,59 @@
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
   <!-- Modal -->
-  <div class="modal fade" id="modalRequest" tabindex="-1" role="dialog" aria-labelledby="modalRequestLabel" aria-hidden="true">
+<div class="modal fade" id="modalRequest" tabindex="-1" role="dialog" aria-labelledby="modalRequestLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalRequestLabel">Make an Appointment</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalRequestLabel">Login User</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="multiStepForm" method="POST" action="{{ route('login') }}">
+                    @csrf
+                    <!-- Step 1 -->
+                    <div class="step" id="step1">
+                        <input type="email" name="email" placeholder="Email" class="form-control mb-3" required>
+                        <input type="password" name="password" placeholder="Password" class="form-control mb-3" required>
+                        <p>Belum Punya Akun ? <a href="" onclick="nextStep(2); return false;" >Daftar Disini</a></p>
+                        <button type="submit" class="btn btn-primary mb-3">Login</button>
+                    </div>
+                </form>
+
+                <!-- Step 2 -->
+                    <div class="step" id="step2" style="display:none;">
+                        <form method="POST" action="{{ route('register') }}">
+                            @csrf
+                            <input type="text" name="name" placeholder="name" class="form-control" required>
+                            <input type="email" name="email" placeholder="Email" class="form-control" required>
+                            <input type="password" name="password" placeholder="Password" class="form-control" required>
+                            <input type="password" name="password_confirmation" placeholder="Confirm Password" class="form-control" required>
+                            <p>Sudah Punya Akun ? <a href="" onclick="nextStep(1); return false;">Login Disini</a></p>
+                            <button type="submit" class="btn btn-primary mb-3">Register</button>
+                        </form>
+                    </div>
+
+
+            </div>
         </div>
-        <div class="modal-body">
-          <form action="#">
-            <div class="form-group">
-              <!-- <label for="appointment_name" class="text-black">Full Name</label> -->
-              <input type="text" class="form-control" id="appointment_name" placeholder="Full Name">
-            </div>
-            <div class="form-group">
-              <!-- <label for="appointment_email" class="text-black">Email</label> -->
-              <input type="text" class="form-control" id="appointment_email" placeholder="Email">
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <!-- <label for="appointment_date" class="text-black">Date</label> -->
-                  <input type="text" class="form-control appointment_date" placeholder="Date">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <!-- <label for="appointment_time" class="text-black">Time</label> -->
-                  <input type="text" class="form-control appointment_time" placeholder="Time">
-                </div>
-              </div>
-            </div>
-
-
-            <div class="form-group">
-              <!-- <label for="appointment_message" class="text-black">Message</label> -->
-              <textarea name="" id="appointment_message" class="form-control" cols="30" rows="10" placeholder="Message"></textarea>
-            </div>
-            <div class="form-group">
-              <input type="submit" value="Make an Appointment" class="btn btn-primary">
-            </div>
-          </form>
-        </div>
-
-      </div>
     </div>
-  </div>
+</div>
 
+<script>
+   function nextStep(step) {
+    // Hide all steps
+    const steps = document.querySelectorAll('.step');
+    steps.forEach((stepElement) => {
+        stepElement.style.display = 'none';
+    });
+
+    // Show the selected step
+    document.getElementById(`step${step}`).style.display = 'block';
+}
+
+</script>
 
   <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/jquery-migrate-3.0.1.min.js"></script>

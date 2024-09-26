@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>DentaCare - Free Bootstrap 4 Template by Colorlib</title>
+    <title>Klinik Sehat</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -30,7 +30,7 @@
 
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Denta<span>Care</span></a>
+	      <a class="navbar-brand" href="/">Klinik<span>Sehat</span></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -51,7 +51,7 @@
     <!-- END nav -->
 
     <section class="home-slider owl-carousel">
-      <div class="slider-item bread-item" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+      <div class="slider-item bread-item" style="background-image: url('assets/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container" data-scrollax-parent="true">
           <div class="row slider-text align-items-end">
@@ -73,156 +73,33 @@
           </div>
         </div>
         <div class="row">
-        	<div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-      				<div class="img mb-4" style="background-image: url(images/person_5.jpg);"></div>
-      				<div class="info text-center">
-      					<h3><a href="teacher-single.html">Tom Smith</a></h3>
-      					<span class="position">Dentist</span>
-      					<div class="text">
-	        				<p>Far far away, behind the word mountains, far from the countries Vokalia</p>
-	        				<ul class="ftco-social">
-			              <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-			              <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-			              <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-			              <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
-			            </ul>
-	        			</div>
-      				</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-      				<div class="img mb-4" style="background-image: url(images/person_6.jpg);"></div>
-      				<div class="info text-center">
-      					<h3><a href="teacher-single.html">Mark Wilson</a></h3>
-      					<span class="position">Dentist</span>
-      					<div class="text">
-	        				<p>Far far away, behind the word mountains, far from the countries Vokalia</p>
-	        				<ul class="ftco-social">
-			              <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-			              <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-			              <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-			              <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
-			            </ul>
-	        			</div>
-      				</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-      				<div class="img mb-4" style="background-image: url(images/person_7.jpg);"></div>
-      				<div class="info text-center">
-      					<h3><a href="teacher-single.html">Patrick Jacobson</a></h3>
-      					<span class="position">Dentist</span>
-      					<div class="text">
-	        				<p>Far far away, behind the word mountains, far from the countries Vokalia</p>
-	        				<ul class="ftco-social">
-			              <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-			              <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-			              <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-			              <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
-			            </ul>
-	        			</div>
-      				</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-      				<div class="img mb-4" style="background-image: url(images/person_8.jpg);"></div>
-      				<div class="info text-center">
-      					<h3><a href="teacher-single.html">Ivan Dorchsner</a></h3>
-      					<span class="position">System Analyst</span>
-      					<div class="text">
-	        				<p>Far far away, behind the word mountains, far from the countries Vokalia</p>
-	        				<ul class="ftco-social">
-			              <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-			              <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-			              <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-			              <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
-			            </ul>
-	        			</div>
-      				</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-      				<div class="img mb-4" style="background-image: url(images/person_1.jpg);"></div>
-      				<div class="info text-center">
-      					<h3><a href="teacher-single.html">Tom Smith</a></h3>
-      					<span class="position">Dentist</span>
-      					<div class="text">
-	        				<p>Far far away, behind the word mountains, far from the countries Vokalia</p>
-	        				<ul class="ftco-social">
-			              <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-			              <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-			              <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-			              <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
-			            </ul>
-	        			</div>
-      				</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-      				<div class="img mb-4" style="background-image: url(images/person_2.jpg);"></div>
-      				<div class="info text-center">
-      					<h3><a href="teacher-single.html">Mark Wilson</a></h3>
-      					<span class="position">Dentist</span>
-      					<div class="text">
-	        				<p>Far far away, behind the word mountains, far from the countries Vokalia</p>
-	        				<ul class="ftco-social">
-			              <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-			              <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-			              <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-			              <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
-			            </ul>
-	        			</div>
-      				</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-      				<div class="img mb-4" style="background-image: url(images/person_3.jpg);"></div>
-      				<div class="info text-center">
-      					<h3><a href="teacher-single.html">Patrick Jacobson</a></h3>
-      					<span class="position">Dentist</span>
-      					<div class="text">
-	        				<p>Far far away, behind the word mountains, far from the countries Vokalia</p>
-	        				<ul class="ftco-social">
-			              <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-			              <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-			              <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-			              <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
-			            </ul>
-	        			</div>
-      				</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-      				<div class="img mb-4" style="background-image: url(images/person_4.jpg);"></div>
-      				<div class="info text-center">
-      					<h3><a href="teacher-single.html">Ivan Dorchsner</a></h3>
-      					<span class="position">System Analyst</span>
-      					<div class="text">
-	        				<p>Far far away, behind the word mountains, far from the countries Vokalia</p>
-	        				<ul class="ftco-social">
-			              <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-			              <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-			              <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-			              <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
-			            </ul>
-	        			</div>
-      				</div>
-        		</div>
-        	</div>
+            @foreach ($dokter as $dkt)
+                <div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
+                    <div class="staff">
+                        <div class="img mb-4" style="background-image: url({{ asset('pasien/foto/'.$dkt->gambar) }});"></div>
+                        <div class="info text-center">
+                            <h3><a href="/doctor">{{ $dkt->nama }}</a></h3>
+                            <span class="position">{{ $dkt->jenis }}</span>
+                            <div class="text">
+                                <p>{{ $dkt->deskripsi }}</p>
+                                <ul class="ftco-social">
+                            <li class="ftco-animate"><a href="{{ $dkt->twiter }}"><span class="icon-twitter"></span></a></li>
+                            <li class="ftco-animate"><a href="{{ $dkt->insta }}"><span class="icon-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="{{ $dkt->face }}"><span class="icon-instagram"></span></a></li>
+                            <li class="ftco-animate"><a href="{{ $dkt->google }}"><span class="icon-google-plus"></span></a></li>
+                            </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
         </div>
       </div>
     </section>
 
 
-    <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_1.jpg);" data-stellar-background-ratio="0.5">
+    <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(assets/images/bg_1.jpg);" data-stellar-background-ratio="0.5">
     	<div class="container">
     		<div class="row d-flex align-items-center">
     			<div class="col-md-3 aside-stretch py-5">
@@ -353,7 +230,7 @@
         <div class="row mb-5">
           <div class="col-md-3">
             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">DentaCare.</h2>
+              <h2 class="ftco-heading-2">Klinik Sehat</h2>
               <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
             </div>
             <ul class="ftco-footer-social list-unstyled float-md-left float-lft ">
@@ -378,7 +255,7 @@
             <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">Recent Blog</h2>
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
+                <a class="blog-img mr-4" style="background-image: url(assets/images/image_1.jpg);"></a>
                 <div class="text">
                   <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
                   <div class="meta">
@@ -389,7 +266,7 @@
                 </div>
               </div>
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
+                <a class="blog-img mr-4" style="background-image: url(assets/images/image_2.jpg);"></a>
                 <div class="text">
                   <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
                   <div class="meta">

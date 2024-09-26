@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>DentaCare - Free Bootstrap 4 Template by Colorlib</title>
+    <title>Klinik Sehat</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -30,7 +30,7 @@
 
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Denta<span>Care</span></a>
+	      <a class="navbar-brand" href="index.html">Klinik<span>Sehat</span></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -51,7 +51,7 @@
     <!-- END nav -->
 
     <section class="home-slider owl-carousel">
-      <div class="slider-item bread-item" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+      <div class="slider-item bread-item" style="background-image: url('assets/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container" data-scrollax-parent="true">
           <div class="row slider-text align-items-end">
@@ -98,7 +98,7 @@
         <div class="row mb-5">
           <div class="col-md-3">
             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">DentaCare.</h2>
+              <h2 class="ftco-heading-2">Klinik Sehat</h2>
               <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
             </div>
             <ul class="ftco-footer-social list-unstyled float-md-left float-lft ">
@@ -123,7 +123,7 @@
             <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">Recent Blog</h2>
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
+                <a class="blog-img mr-4" style="background-image: url(assets/images/image_1.jpg);"></a>
                 <div class="text">
                   <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
                   <div class="meta">
@@ -134,7 +134,7 @@
                 </div>
               </div>
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
+                <a class="blog-img mr-4" style="background-image: url(assets/images/image_2.jpg);"></a>
                 <div class="text">
                   <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
                   <div class="meta">

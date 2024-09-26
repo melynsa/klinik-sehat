@@ -43,7 +43,7 @@
                 <li class="nav-item"><a href="/doctor" class="nav-link">Doctors</a></li>
                 <li class="nav-item"><a href="/blog" class="nav-link">Blog</a></li>
                 <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
-	          <li class="nav-item cta"><a href="contact.html" class="nav-link" data-toggle="modal" data-target="#modalRequest"><span>Make an Appointment</span></a></li>
+	          <li class="nav-item cta"><a href="" class="nav-link" data-toggle="modal" data-target="#modalRequest"><span>Make an Appointment</span></a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -51,7 +51,7 @@
     <!-- END nav -->
 
     <section class="home-slider owl-carousel">
-      <div class="slider-item bread-item" style="background-image: url('assets/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+      <div class="slider-item bread-item" style="background-image: url('{{ asset('assets/images/bg_1.jpg') }}');" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container" data-scrollax-parent="true">
           <div class="row slider-text align-items-end">
