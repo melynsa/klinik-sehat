@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
+    // menampilkan data menublog
     public function tampilblog()
     {
         $judul = "Form Tambah Data Blog Baru";

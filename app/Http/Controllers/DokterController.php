@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class DokterController extends Controller
 {
-
+    // menampilkan data dokter
     public function tampildokter()
     {
         $judul = "Form Tambah Data dokter Baru";
@@ -16,7 +16,7 @@ class DokterController extends Controller
         return view('dokter.index', compact('dokter', 'judul', 'title'));
     }
 
-    // menyimpan hasil penambahan kategori
+    // menyimpan hasil penambahan dokter
     public function simpandokter(Request $request)
     {
         $request->validate([
@@ -54,7 +54,7 @@ class DokterController extends Controller
         return redirect()->route('tampil.dokter')->with('success', 'dokter telah ditambahkan.');
     }
 
-    // Method untuk update kategori
+    // Method untuk update dokter
     public function updatedokter(Request $request, $id)
     {
 

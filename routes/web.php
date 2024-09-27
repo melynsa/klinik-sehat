@@ -10,6 +10,8 @@ use App\Http\Controllers\TampilanController;
 use Illuminate\Support\Facades\Route;
 
 
+
+
 // Petugas dan admin //
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin', [KategoriController::class, 'tampilkategori'])->name('tampil.kategori');
@@ -20,13 +22,13 @@ Route::middleware(['auth'])->group(function () {
 // Petugas dan admin //
 
 // Petugas dan admin //
-Route::middleware(['auth','petugas'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/pemeriksaan/create/{kategori}', [PemeriksaanController::class, 'tambahperiksabyid'])->name('pemeriksaan.create.with.category');
     Route::get('/invoice/{id}', [PemeriksaanController::class, 'showInvoice'])->name('invoice');
     Route::get('/invoice/pdf/{id}', [PemeriksaanController::class, 'generatePdf'])->name('invoice.pdf');
 });
 
-Route::middleware(['auth','admin'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/pemeriksaan', [PemeriksaanController::class, 'tampilkategori'])->name('pemeriksaan.index');
     Route::post('/pemeriksaan/store', [PemeriksaanController::class, 'simpanpemeriksaan'])->name('pemeriksaan.store');
     Route::post('/pemeriksaan/{id}/delete', [PemeriksaanController::class, 'hapuspemeriksaan'])->name('pemeriksaan.destroy');
@@ -49,7 +51,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 // admin //
-Route::middleware(['auth','admin'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/menublog', [BlogController::class, 'tampilblog'])->name('tampil.blog');
     Route::post('/menublog/store', [BlogController::class, 'simpanblog'])->name('simpan.blog');
     Route::put('/blog/{id}/update', [BlogController::class, 'updateblog'])->name('update.blog');
@@ -63,7 +65,7 @@ Route::middleware(['auth','admin'])->group(function () {
 // admin //
 
 //petugas dan admin//
-Route::middleware(['auth', 'petugas'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/pendaftaranpasien', [PendaftaranController::class, 'daftarpasien'])->name('pasien.daftar');
 });
 
@@ -75,10 +77,16 @@ Route::middleware(['auth'])->group(function () {
 });
 
 // Routes for login and registration
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
-Route::post('/register', [AuthController::class, 'register'])->name('register');
+Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
+Route::get('/roleuser', [AuthController::class, 'index'])->name('index.tampil');
+Route::post('/role/store', [AuthController::class, 'store'])->name('user.store');
+Route::put('/role/{id}/update', [AuthController::class, 'update'])->name('user.update');
+Route::delete('/user/{id}/delete', [AuthController::class, 'destroy'])->name('user.destroy');
 
 

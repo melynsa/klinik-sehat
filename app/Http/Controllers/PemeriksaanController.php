@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 
 class PemeriksaanController extends Controller
 {
-
+    // masuk ke form pemeriksaan berdasarkan id kategori
     public function tambahperiksabyid(Request $request, $kategori_id)
     {
 
@@ -24,19 +24,16 @@ class PemeriksaanController extends Controller
         return view('pemeriksaan.create', compact('kategori', 'kategoridipilih', 'pendaftaran'));
     }
 
-
+    // menampilkan tabel data kategori
     public function tampilkategori()
     {
         $pemeriksaan = Pemeriksaan::with('kategori')->get();
         return view('pemeriksaan.index', compact('pemeriksaan'));
     }
 
-    // public function tambahpemeriksaan()
-    // {
-    //     $kategori = Kategori::all(); // Ambil semua kategori untuk pilihan
-    //     return view('pemeriksaan.create', compact('kategori'));
-    // }
 
+
+    // menyimpan hasil data tambah kategori
     public function simpanpemeriksaan(Request $request)
     {
         $request->validate([
@@ -77,34 +74,7 @@ class PemeriksaanController extends Controller
         return redirect()->route('invoice', ['id' => $pemeriksaan->id])->with('success', 'Pemeriksaan berhasil ditambahkan.');
     }
 
-    // public function edit($id)
-    // {
-    //     $pemeriksaan = Pemeriksaan::findOrFail($id);
-    //     $kategori = Kategori::all();
-    //     return view('pemeriksaan.edit', compact('pemeriksaan', 'kategori'));
-    // }
-
-    // public function update(Request $request, $id)
-    // {
-    //     $request->validate([
-    //         'kategori_id' => 'required|exists:kategori,id',
-    //         'nama_pasien' => 'required',
-    //         'keluhan' => 'required',
-    //         'diagnosa' => 'required',
-    //         'hasil_pemeriksaan' => 'required',
-    //         'jenis_pasien' => 'required|in:BPJS,UMUM',
-    //         'total_pembayaran' => 'required|numeric',
-    //     ]);
-
-    //     $pemeriksaan = Pemeriksaan::findOrFail($id);
-    //     $jenisPasien = new JenisPasien($request->jenis_pasien);
-    //     $totalBayar = $jenisPasien->jenis($request->total_pembayaran);
-
-    //     $pemeriksaan->update(array_merge($request->all(), ['total_pembayaran' => $totalBayar]));
-
-    //     return redirect()->route('pemeriksaan.index')->with('success', 'Pemeriksaan berhasil diperbarui.');
-    // }
-
+    // hapus data pemeriksaan
     public function hapuspemeriksaan($id)
     {
         $pemeriksaan = Pemeriksaan::findOrFail($id);
@@ -113,12 +83,14 @@ class PemeriksaanController extends Controller
         return redirect()->route('pemeriksaan.index')->with('success', 'Pemeriksaan berhasil dihapus.');
     }
 
+    // menampilkan invoice hasil pemeriksaan
     public function showInvoice($id)
     {
         $pemeriksaan = Pemeriksaan::with('kategori')->findOrFail($id);
         return view('pemeriksaan.invoice', compact('pemeriksaan'));
     }
 
+    // ubah ke pdf
     public function generatePdf($id)
     {
         $pemeriksaan = Pemeriksaan::with('kategori')->findOrFail($id);

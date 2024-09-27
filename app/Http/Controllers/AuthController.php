@@ -9,39 +9,66 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    // crud role
 
 
-
+    // menampilkkan tabel user, form tambah dan ubah di dashboard admin
     public function index()
     {
+        $judul = "Form Tambah Data User Baru";
         $users = User::all();
-        return view('user.index', compact('users'));
+        return view('user.index', compact('users', 'judul'));
     }
 
-    public function edit($id)
+    // menyimpan form tambah data user
+    public function store(Request $request)
     {
-        $user = User::find($id);
-        return view('user.edit', compact('user'));
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required',
+            'role' => 'required||in:petugas,admin',
+        ]);
+
+        $data = new User();
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->password = $request->password;
+        $data->role = $request->role;
+
+        $data->save();
+
+        return redirect()->route('index.tampil')->with('success', 'Kategori telah ditambahkan.');
     }
 
+    // menemukan data user berdasarkan id  dan menyimpan hasil update data user
     public function update(Request $request, $id)
     {
         $user = User::find($id);
         $user->update($request->all());
-        return redirect()->route('user.index')->with('success', 'User updated successfully!');
+        return redirect()->route('index.tampil')->with('success', 'User updated successfully!');
     }
 
+    // menghapus data user
     public function destroy($id)
     {
         User::destroy($id);
-        return redirect()->route('user.index')->with('success', 'User deleted successfully!');
+        return redirect()->route('index.tampil')->with('success', 'User deleted successfully!');
     }
 
-    //login register
+    //mengembalikan ke halaman landing untuk melakukan login
+    public function showLogin()
+    {
+        // return redirect()->route('login')->with('error', 'Anda belum login. Silakan login terlebih dahulu.');
+        return back()->with('error', 'Anda belum login. Silakan login terlebih dahulu.');
+    }
 
+    //mengembalikan ke halaman landing untuk melakukan register
+    public function showRegister()
+    {
+        return back()->with('error', 'Silakan lakukan registrasi terlebih dahulu.');
+    }
 
-
+    // menyimpan data hasil register
     public function register(Request $request)
     {
         $request->validate([
@@ -62,6 +89,8 @@ class AuthController extends Controller
         return redirect()->route('landing.page')->with('success', 'Registration successful!');
     }
 
+
+    // mem verifikasi data hasil login
     public function login(Request $request)
     {
         $credentials = $request->validate([
@@ -79,6 +108,7 @@ class AuthController extends Controller
         ]);
     }
 
+    // fungsi log out untuk keluar dari akun
     public function logout(Request $request)
     {
         Auth::logout();

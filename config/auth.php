@@ -44,7 +44,7 @@ return [
         // Tambahkan guard untuk admin
         'admin' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'admin',
         ],
     ],
 
@@ -67,6 +67,10 @@ return [
 
     'providers' => [
         'users' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', App\Models\User::class),
+        ],
+        'admin' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
         ],
